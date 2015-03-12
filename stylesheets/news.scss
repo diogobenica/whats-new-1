@@ -4,29 +4,28 @@
   }
 }
 
-#dropdown-news {
+#dropdown-news, #news {
   width: 400px;
   padding: 0;
+  font-size: 14px;
 
   ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    height: 500px;
     overflow-x: auto;
 
     li {
-      font-size: 14px;
       color: #333;
       text-shadow: 1px 1px 1px #fff;
       clear: both;
       padding: 10px;
       border-top: 1px solid #eee;
 
-      time{
+      time {
         clear: both;
         display: table;
-        font-size: 12px;
+        font-size: 0.85em;
         color: #999;
         text-align: right;
       }
@@ -45,4 +44,9 @@
     font-size: 12px;
     border-top: 1px solid #dddddd;
   }
+}
+
+#news {
+  width: 100%;
+  font-size: 1.4em;
 }
