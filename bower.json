@@ -1,0 +1,23 @@
+{
+  "name": "news",
+  "version": "0.0.1",
+  "authors": [
+    "Diogo Benicá <diogobenica@gmail.com>"
+  ],
+  "description": "What's new component",
+  "main": "js/main.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "news"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
