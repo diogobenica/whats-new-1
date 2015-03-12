@@ -5,7 +5,10 @@
     "Diogo Benicá <diogobenica@gmail.com>"
   ],
   "description": "What's new component",
-  "main": "js/main.js",
+  "main": [
+    "main.js",
+    "main.css"
+  ],
   "moduleType": [
     "amd"
   ],
