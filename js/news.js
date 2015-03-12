@@ -20,13 +20,12 @@ define('news', ['jquery'], function($) {
           count_news++;
         }
 
-        $('#dropdown-news ul').append(li);
-
+        $('ul.list', selector).append(li);
       });
 
       NewsPrivate.putInCounter(count_news);
 
-      $('#dropdown-news ul li').on('mouseleave', function() {
+      $('ul.list li', selector).on('mouseleave', function() {
         if (!$(this).hasClass('read')) {
           count_news--;
           NewsPrivate.putInCounter(count_news);
@@ -38,7 +37,6 @@ define('news', ['jquery'], function($) {
   };
 
   NewsPrivate.storage = function() {
-
     if (NewsPrivate.getCookie(key)) {
       result = JSON.parse("[" + NewsPrivate.getCookie(key) + "]");
     } else {
