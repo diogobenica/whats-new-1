@@ -5,8 +5,7 @@ define('news', ['jquery'], function($) {
   var news_checked = 0;
   var key          = 'ubberListNews____';
 
-  News.boot = function(e) {
-
+  News.boot = function(selector = "#dropdown-news") {
     NewsPrivate.putInCounter(count_news);
 
     $.getJSON(require.toUrl("../../news.json"), {}).done(function(data) {
