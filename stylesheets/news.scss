@@ -1,82 +1,48 @@
-#notificationContainer {
-  background-color: #fff;
-  border: 1px solid rgba(100, 100, 100, .4);
-  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-  -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-  -ms-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-  -o-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-  overflow: visible;
-  position: absolute;
-  top: 42px;
-  margin-left: -170px;
+#dropdown-news-button {
+  .badge {
+    background-color: #FF4319;
+  }
+}
+
+#dropdown-news {
   width: 400px;
-  z-index: 9999;
-  display: none;
-  max-height: 540px;
-  overflow: hidden;
-}
-#notificationContainer:before {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 0;
-  height: 0;
-  color: transparent;
-  border: 10px solid black;
-  border-color: transparent transparent white;
-  margin-top: -20px;
-  margin-left: 188px;
-}
-#notificationsBody {
-  padding: 20px 0 0 0 !important;
-  overflow-x: auto;
-  display: block;
-  height: 500px;
-}
-#notificationFooter {
-  background-color: #e9eaed;
-  text-align: center;
-  font-weight: bold;
-  padding: 8px;
-  font-size: 12px;
-  border-top: 1px solid #dddddd;
-}
-
-#notificationsBody ul {
-  margin: 0;
   padding: 0;
-  list-style: none;
-}
 
-#notificationsBody ul:first-child {
-  border: none;
-}
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 500px;
+    overflow-x: auto;
 
-#notificationsBody ul li {
-  font-size: 14px;
-  color: #333;
-  text-shadow: 1px 1px 1px #fff;
-  clear: both;
-  padding: 10px;
-  border-top: 1px solid #eee;
-}
+    li {
+      font-size: 14px;
+      color: #333;
+      text-shadow: 1px 1px 1px #fff;
+      clear: both;
+      padding: 10px;
+      border-top: 1px solid #eee;
 
+      time{
+        clear: both;
+        display: table;
+        font-size: 12px;
+        color: #999;
+        text-align: right;
+      }
+    }
 
-#notificationsBody ul li time{
-  clear: both;
-  display: table;
-  font-size: 12px;
-  color: #999;
-  text-align: right;
-}
+    li.read, li.read time {
+      background-color: #f0f0f0;
+      color:#ccc;
+    }
+  }
 
-
-#notificationsBody ul li.read, #notificationsBody ul li.read time {
-  background-color: #f0f0f0;
-  color:#ccc;
-}
-
-.btn-news .badge {
-  background-color: #FF4319;
+  .footer {
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 12px;
+    border-top: 1px solid #dddddd;
+  }
 }

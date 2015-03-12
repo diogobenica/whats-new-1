@@ -21,13 +21,13 @@ define('news', ['jquery'], function($) {
           count_news++;
         }
 
-        $('#notificationsBody ul').append(li);
+        $('#dropdown-news ul').append(li);
 
       });
 
       NewsPrivate.putInCounter(count_news);
 
-      $('#notificationsBody li').on('mouseleave', function() {
+      $('#dropdown-news ul li').on('mouseleave', function() {
         if (!$(this).hasClass('read')) {
           count_news--;
           NewsPrivate.putInCounter(count_news);
@@ -35,18 +35,7 @@ define('news', ['jquery'], function($) {
           NewsPrivate.addItem($(this).attr('data-id'));
         }
       });
-
     });
-
-    $(".btn-news").click(function(event) {
-      $("#notificationContainer").fadeIn(300);
-      event.preventDefault();
-    });
-
-    $("#notificationContainer").mouseleave(function() {
-      $(this).fadeOut(300);
-    });
-
   };
 
   NewsPrivate.storage = function() {
@@ -79,7 +68,7 @@ define('news', ['jquery'], function($) {
 
   NewsPrivate.setCookie = function(key, value) {
     var expires = new Date();
-    expires.setTime(expires.getTime() + (3600 * 1000 * 24 * 365));
+    expires.setTime(expires.getTime() + (3000));
     document.cookie = key + '=' + value + ';expires=' + expires.toUTCString() + ';domain=.abril.com.br';
   };
 
