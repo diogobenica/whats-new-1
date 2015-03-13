@@ -65,7 +65,7 @@ define('news', ['jquery'], function($) {
 
   NewsPrivate.setCookie = function(key, value) {
     var expires = new Date();
-    expires.setTime(expires.getTime() + (3000));
+    expires.setTime(expires.getTime() + (3600 * 1000 * 24 * 365));
     document.cookie = key + '=' + value + ';expires=' + expires.toUTCString() + ';domain=.abril.com.br';
   };
 
