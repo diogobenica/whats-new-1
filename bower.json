@@ -1,19 +1,20 @@
 {
-  "name": "news",
+  "name": "whats-new",
   "version": "0.0.1",
   "authors": [
     "Diogo Benicá <diogobenica@gmail.com>"
   ],
-  "description": "What's new component",
+  "description": "What's New feedback for your system",
   "main": [
-    "main.js",
-    "main.css"
+    "js/news.js",
+    "css/news.css"
   ],
   "moduleType": [
     "amd"
   ],
   "keywords": [
-    "news"
+    "news",
+    "whats new"
   ],
   "license": "MIT",
   "ignore": [
