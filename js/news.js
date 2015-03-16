@@ -5,13 +5,23 @@ define('news', ['jquery'], function($) {
   var news_checked = 0;
   var key          = 'ubberListNews____';
 
-  News.boot = function(selector = "#dropdown-news") {
-    NewsPrivate.putInCounter(count_news);
+  News.boot = function(userOptions) {
+    var options = {
+      selector: "#dropdown-news",
+      limit: false,
+      badgeSelector: false
+    }
+    $.extend(options, userOptions);
+
+    if (options.badgeSelector) {
+      NewsPrivate.putInCounter(options.badgeSelector, count_news);
+    }
 
     $.getJSON(require.toUrl("../../news.json"), {}).done(function(data) {
       var news_checked = NewsPrivate.loadItems();
 
       $.each(data.news.item.reverse(), function(key, val) {
+        if (options.limit && options.limit == count_news) return false;
 
         var li = $("<li></li>" ).attr('data-id', val.id).html(val.text).append($('<time></time>').html(val.date));
         if ($.inArray(parseInt(val.id), news_checked) != -1) {
@@ -20,15 +30,19 @@ define('news', ['jquery'], function($) {
           count_news++;
         }
 
-        $('ul.list', selector).append(li);
+        $('ul.list', options.selector).append(li);
       });
 
-      NewsPrivate.putInCounter(count_news);
+      if (options.badgeSelector) {
+        NewsPrivate.putInCounter(options.badgeSelector, count_news);
+      }
 
-      $('ul.list li', selector).on('mouseleave', function() {
+      $('ul.list li', options.selector).on('mouseleave', function() {
         if (!$(this).hasClass('read')) {
           count_news--;
-          NewsPrivate.putInCounter(count_news);
+          if (options.badgeSelector) {
+            NewsPrivate.putInCounter(options.badgeSelector, count_news);
+          }
           $(this).addClass("read");
           NewsPrivate.addItem($(this).attr('data-id'));
         }
@@ -45,11 +59,11 @@ define('news', ['jquery'], function($) {
     return result;
   },
 
-  NewsPrivate.putInCounter = function(num) {
+  NewsPrivate.putInCounter = function(selector, num) {
     if (parseInt(num) <= 0) {
-      $(".btn-news .badge").hide();
+      $(selector).hide();
     } else {
-      $(".btn-news .badge").html(num).show(100);
+      $(selector).html(num).show(100);
     }
   };
 
