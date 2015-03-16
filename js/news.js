@@ -3,7 +3,11 @@ define('news', ['jquery'], function($) {
   var NewsPrivate  = {};
   var count_news   = 0;
   var news_checked = 0;
-  var key          = 'ubberListNews____';
+  var key          = 'whatsNew____';
+
+  News.setId = function(id) {
+    key = id;
+  }
 
   News.boot = function(userOptions) {
     var options = {
@@ -53,6 +57,7 @@ define('news', ['jquery'], function($) {
   };
 
   NewsPrivate.storage = function() {
+    console.log(key)
     if (NewsPrivate.getCookie(key)) {
       result = JSON.parse("[" + NewsPrivate.getCookie(key) + "]");
     } else {
