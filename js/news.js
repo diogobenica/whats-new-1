@@ -19,10 +19,12 @@ define('news', ['jquery'], function($) {
 
     $.getJSON(require.toUrl("../../news.json"), {}).done(function(data) {
       var news_checked = NewsPrivate.loadItems();
+      var items = data.news.item.reverse();
 
-      $.each(data.news.item.reverse(), function(key, val) {
-        if (options.limit && options.limit == count_news) return false;
-
+      if (options.limit) {
+        items = items.slice(0, options.limit);
+      }
+      $.each(items, function(key, val) {
         var li = $("<li></li>" ).attr('data-id', val.id).html(val.text).append($('<time></time>').html(val.date));
         if ($.inArray(parseInt(val.id), news_checked) != -1) {
           li.addClass('read');
