@@ -57,6 +57,7 @@ define('news', ['jquery'], function($) {
   };
 
   NewsPrivate.storage = function() {
+    console.log(key)
     if (NewsPrivate.getCookie(key)) {
       result = JSON.parse("[" + NewsPrivate.getCookie(key) + "]");
     } else {
