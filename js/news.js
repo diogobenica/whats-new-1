@@ -13,7 +13,8 @@ define('news', ['jquery'], function($) {
     var options = {
       selector: "#dropdown-news",
       limit: false,
-      badgeSelector: false
+      badgeSelector: false,
+      file: "../../news.json"
     }
     $.extend(options, userOptions);
 
@@ -21,7 +22,7 @@ define('news', ['jquery'], function($) {
       NewsPrivate.putInCounter(options.badgeSelector, count_news);
     }
 
-    $.getJSON(require.toUrl("../../news.json"), {}).done(function(data) {
+    $.getJSON(require.toUrl(options.file), {}).done(function(data) {
       var news_checked = NewsPrivate.loadItems();
       var items = data.news.item.reverse();
 
